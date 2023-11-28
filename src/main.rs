@@ -70,7 +70,7 @@ async fn data_extraction() -> Result<(), Box<dyn std::error::Error>> {
     // * recover the last found lp
     // Open the CSV file for reading
 
-    let file = File::open(r"csvs\univ2lps.csv")?;
+    let file = File::open(r"csv\univ2lps.csv")?;
     let mut rdr = Reader::from_reader(file);
     // get the last record to recover work
     for result in rdr.records() {
@@ -83,7 +83,7 @@ async fn data_extraction() -> Result<(), Box<dyn std::error::Error>> {
         .write(true)
         .create(true)
         .append(true)
-        .open(r"csvs\univ2lps.csv")?;
+        .open(r"csv\univ2lps.csv")?;
     let mut writer = WriterBuilder::new().has_headers(false).from_writer(file2);
 
     // ! start main loop
